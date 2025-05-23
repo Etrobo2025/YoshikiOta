@@ -9,13 +9,13 @@
 
 using namespace spikeapi;
 
-ColorSensor clorSensor(EPort::PORT_E); //カラーセンサをポートをEに接続
+ColorSensor colorSensor(EPort::PORT_E); //カラーセンサをポートをEに接続
 ForceSensor forceSensor(EPort::PORT_D); //フォースセンサをポートDに指定
 Clock clock;
 
-void main_task(inptr_t unused){
+void main_task(intptr_t unused){
     rgb_raw_t rgb; //RGB値格納構造体
-    const unit32_t interval =  1000 * 1000; //1000ms
+    const uint32_t interval =  1000 * 1000; //1000ms
     printf("RGB Logger Start\n");
 
     while(!forceSensor.isTouched()){
@@ -26,6 +26,6 @@ void main_task(inptr_t unused){
         clock.sleep(interval);
     }
 
-    printf("RGB Logger Stooped\n");
+    printf("RGB Logger Stoped\n");
     ext_tsk(); //タスク終了
 }

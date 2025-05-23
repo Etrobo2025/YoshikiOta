@@ -1,10 +1,13 @@
 #ifndef APP_H_
-#define AP_H_
+#define APP_H_
 
 #include <kernel.h>
 #include <t_syslog.h>
 #include <t_stdlib.h>
+#include <stdint.h>
 
-extern void main_task(inptr_t exinf);
+#define MAIN_TASK 1  // タスクID定義を追加
+
+extern void main_task(intptr_t exinf);
 
 #endif
