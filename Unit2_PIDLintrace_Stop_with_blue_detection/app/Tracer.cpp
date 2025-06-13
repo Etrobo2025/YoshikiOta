@@ -10,11 +10,11 @@ Tracer::Tracer():
 }
 
 void Tracer::init() {
-  printf("Tracer\n");
+  printf("ライントレースを開始します。\n");
 }
 
 void Tracer::terminate() {
-  printf("Stopped.\n");
+  printf("走行体を停止します。\n");
   leftWheel.stop();
   rightWheel.stop();
 }
@@ -37,7 +37,7 @@ void Tracer::run() {
   float blueRatio = b / total;
   
   if (blueRatio > 0.4) {
-    printf("走行体停止\n");
+    printf("青色を検知したため走行体を停止します。\n");
     terminate();
     exit(0);
   }
@@ -45,7 +45,7 @@ void Tracer::run() {
 
 float Tracer::calc_pid_value() {
 
-  const float Kp=0.67;
+  const float Kp=0.5;
   const float Ki=0.003;
   const float Kd=0.008;
   const int target=52;
