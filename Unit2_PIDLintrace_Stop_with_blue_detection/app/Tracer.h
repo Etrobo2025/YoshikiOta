@@ -1,5 +1,6 @@
 #include "Motor.h"
 #include "ColorSensor.h"
+#include "UltrasonicSensor.h" 
 
 using namespace spikeapi;
 
@@ -15,9 +16,11 @@ private:
   Motor leftWheel;
   Motor rightWheel;
   ColorSensor colorSensor;
+  UltrasonicSensor ultrasonic;
   const int8_t mThreshold = 20;
   float integral=0.0f;
   float previousError=0.0f;
+  int traceflag=0;
 #ifndef MAKE_RASPIKE
   const int8_t pwm = 50;
 #else
